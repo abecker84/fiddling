@@ -4,6 +4,9 @@ import org.junit.Test;
 
 import java8.chapter2_lambdas.aufgabe01.LongBinaryOperator;
 
+/**
+ * Lösung zu Aufgabe 1
+ */
 public class Aufgabe01 {
 
 	@Test
