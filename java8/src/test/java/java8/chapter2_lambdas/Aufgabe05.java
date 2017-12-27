@@ -5,36 +5,39 @@ import java.io.FileFilter;
 
 import org.junit.Test;
 
+/**
+ * Lösung zu Aufgabe 4
+ */
 public class Aufgabe05 {
 
-	@Test
-	public void aufgabe05vorgabe() {
+    @Test
+    public void aufgabe05vorgabe() {
 
-		final FileFilter directoryFilter = new FileFilter() {
-			public boolean accept(final File pathname) {
-				return pathname.isDirectory();
-			}
-		};
-
-		final FileFilter pdfFileFilter = new FileFilter() {
-			public boolean accept(final File pathname) {
-				return (pathname.isFile() && pathname.getName().toLowerCase().endsWith(".pdf"));
-			}
-		};
-
-	}
-
-	@Test
-	public void aufgabe05mitMethodenreferenzUndLambda() {
-
-		final FileFilter directoryFilter = this::isDirectory;
-		final FileFilter pdfFileFilter = (pathname) -> pathname.isFile()
-				&& pathname.getName().toLowerCase().endsWith(".pdf");
-
-	}
-
-	private boolean isDirectory(final File pathname) {
+	final FileFilter directoryFilter = new FileFilter() {
+	    public boolean accept(final File pathname) {
 		return pathname.isDirectory();
-	}
+	    }
+	};
+
+	final FileFilter pdfFileFilter = new FileFilter() {
+	    public boolean accept(final File pathname) {
+		return (pathname.isFile() && pathname.getName().toLowerCase().endsWith(".pdf"));
+	    }
+	};
+
+    }
+
+    @Test
+    public void aufgabe05mitMethodenreferenzUndLambda() {
+
+	final FileFilter directoryFilter = this::isDirectory;
+	final FileFilter pdfFileFilter = (pathname) -> pathname.isFile()
+		&& pathname.getName().toLowerCase().endsWith(".pdf");
+
+    }
+
+    private boolean isDirectory(final File pathname) {
+	return pathname.isDirectory();
+    }
 
 }
